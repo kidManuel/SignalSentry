@@ -48,10 +48,6 @@ func _on_dependency_done(id: int) -> void:
 
 func clear(response: Result) -> void:
 	done.emit(response)
-
-	for key: int in dependencies:
-		dependencies[key].disconnect(_on_dependency_done)
-
 	call_deferred('free')
 
 func _on_min_time_expired() -> void:
